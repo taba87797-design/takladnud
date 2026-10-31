@@ -4,6 +4,7 @@ const crypto = require("crypto");
 const { promisify } = require("util");
 
 const app = express();
+app.set("json replacer", (key, value) => typeof value === "bigint" ? value.toString() : value);
 const scrypt = promisify(crypto.scrypt);
 const pool = mariadb.createPool({
   host: "10.200.210.117",
@@ -63,6 +64,14 @@ async function ensureSchema() {
     CONSTRAINT fk_booking_shop FOREIGN KEY (shop_id) REFERENCES shops(shop_id) ON DELETE RESTRICT,
     CONSTRAINT fk_booking_store FOREIGN KEY (store_id) REFERENCES stores(store_id) ON DELETE RESTRICT
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`);
+
+  await query(`INSERT IGNORE INTO stalls (stall_code, location_description, price) VALUES
+    ('DEMO-01', 'โซนตัวอย่าง A · แถวหน้า', 100.00),
+    ('DEMO-02', 'โซนตัวอย่าง A · แถวกลาง', 120.00),
+    ('DEMO-03', 'โซนตัวอย่าง A · แถวใน', 100.00),
+    ('DEMO-04', 'โซนตัวอย่าง B · แถวหน้า', 150.00),
+    ('DEMO-05', 'โซนตัวอย่าง B · แถวกลาง', 120.00),
+    ('DEMO-06', 'โซนตัวอย่าง B · แถวใน', 150.00)`);
 }
 
 function userFromRequest(req) {
