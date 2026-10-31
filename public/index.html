@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e6">
+  <title>ตากตลาดนัด | จองแผงและค้นหาร้าน</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/index.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="ตากตลาดนัด หน้าแรก"><span class="brand-mark">ต</span><span>ตากตลาดนัด<small>ตลาดของคนในชุมชน</small></span></a>
+    <nav aria-label="เมนูหลัก"><a href="#booking">จองแผง</a><a href="#map">ค้นหาร้าน</a><button id="account-button" class="button button-small">เข้าสู่ระบบ</button></nav>
+  </header>
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy"><p class="eyebrow">ตลาดนัด • พบปะ • เติบโต</p><h1>ที่ของคุณ<br><em>เริ่มต้นตรงนี้</em></h1><p class="intro">พื้นที่ให้ร้านเล็กได้เติบโต และช่วยให้ทุกคนเจอร้านโปรดในตลาดใกล้บ้าน</p><div class="hero-actions"><a class="button" href="#booking">จองแผงค้า <span>↗</span></a><a class="text-link" href="#map">สำรวจร้านค้า <span>↓</span></a></div></div>
+      <div class="hero-art" aria-label="ภาพประกอบตลาดนัด"><div class="sun"></div><div class="awning awning-one"></div><div class="awning awning-two"></div><div class="market-table"><span>ของสด • ของทำมือ • ของอร่อย</span></div><div class="plant plant-one">✳</div><div class="plant plant-two">✳</div><p class="art-note">พบกันที่<br><strong>ตลาดเดียวกัน</strong></p></div>
+      <div class="hero-stamp">LOCAL<br><b>FINDS</b><span>♡</span></div>
+    </section>
+    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    <section id="booking" class="section booking-section"><div class="section-heading"><div><p class="eyebrow">FOR THE MAKERS</p><h2>เริ่มจองแผงของคุณ</h2></div><p>สมัครด้วยอีเมล จัดการร้านของคุณ<br>และส่งคำขอจองได้ในไม่กี่ขั้นตอน</p></div>
+      <div class="booking-grid"><article class="panel auth-panel"><div class="tab-row"><button class="tab active" data-auth="login">เข้าสู่ระบบ</button><button class="tab" data-auth="register">สมัครผู้ขาย</button></div><form id="auth-form"><label id="name-field" class="hidden">ชื่อผู้ขาย<input name="name" autocomplete="name" placeholder="ชื่อที่ใช้แสดง"></label><label>อีเมล<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label><label>รหัสผ่าน<input name="password" type="password" required minlength="8" autocomplete="current-password" placeholder="อย่างน้อย 8 ตัวอักษร"></label><button class="button button-wide" type="submit" id="auth-submit">เข้าสู่ระบบ</button></form><div id="seller-area" class="hidden"><div class="seller-head"><span class="seller-dot"></span><span id="seller-name"></span><button id="logout-button" class="text-button">ออกจากระบบ</button></div><form id="store-form"><h3>ข้อมูลร้านของฉัน</h3><label>ชื่อร้าน<input name="storeName" required placeholder="เช่น ครัวบ้านสวน"></label><label>ประเภทสินค้า<input name="category" required placeholder="อาหาร / งานฝีมือ"></label><label>แนะนำร้าน<textarea name="description" rows="2" placeholder="รายการสินค้า หรือเรื่องราวร้าน"></textarea></label><label>ช่องทางติดต่อที่เปิดเผย<input name="contactText" placeholder="เช่น Facebook / Line"></label><button class="button button-wide" type="submit">บันทึกข้อมูลร้าน</button></form></div></article>
+      <article class="panel stalls-panel"><div class="panel-title"><div><p class="eyebrow">THE STALL LIST</p><h3>เลือกแผงที่ว่าง</h3></div><span class="pill">คำขอจะเป็น pending</span></div><p class="muted">สถานะจองจะปรากฏในหน้านี้ • ยกเลิกแล้วจองแผงเดิมใหม่ได้</p><div id="stall-list" class="stall-list"><p class="empty-state">กำลังโหลดรายการแผง...</p></div><div id="bookings" class="booking-history"></div></article></div>
+    </section>
+    <section id="map" class="section discovery-section"><div class="section-heading"><div><p class="eyebrow">FOR THE CURIOUS</p><h2>เจอร้านที่ใช่</h2></div><p>ค้นหาร้านค้าที่ร่วมตลาด<br>แล้ววางแผนแวะร้านโปรดได้เลย</p></div><div class="search-bar"><span>⌕</span><input id="store-search" type="search" placeholder="ค้นหาชื่อร้านหรือประเภทสินค้า"><span class="search-hint">ค้นหา</span></div><div id="store-list" class="store-list"><p class="empty-state">กำลังโหลดร้านค้า...</p></div><div class="qr-note"><div class="qr-pattern" aria-hidden="true"><span></span><span></span><span></span><span></span><i>↗</i></div><p><strong>ตลาดในกระเป๋าคุณ</strong><br>พร้อมรองรับลิงก์ QR สำหรับเปิดดูร้านค้า</p></div></section>
+  </main>
+  <footer><a class="brand" href="#home"><span class="brand-mark">ต</span><span>ตากตลาดนัด<small>ตลาดเดียวกัน เติบโตไปด้วยกัน</small></span></a><span>แพลตฟอร์มชุมชน • พบกันที่ตลาด</span></footer>
+  <dialog id="booking-dialog"><form method="dialog" class="dialog-card"><button class="dialog-close" aria-label="ปิด">×</button><p class="eyebrow">BOOK YOUR PLACE</p><h2>ยืนยันคำขอจอง</h2><p id="booking-summary"></p><button id="confirm-booking" class="button button-wide" value="confirm">ส่งคำขอจอง</button></form></dialog>
+</body>
+</html>
